@@ -57,28 +57,28 @@ class FoodAppConstants {
   static List<FoodSubType> listOfDrinkTypes = [
     const FoodSubType(
         name: 'Vodka',
-        image: 'assets/food_app/sub_items_images/beef_burger.png'),
+        image: 'assets/food_app/sub_items_images/vodka.png'),
     const FoodSubType(
-        name: 'Wine', image: 'assets/food_app/sub_items_images/cheesbust.png'),
+        name: 'Wine', image: 'assets/food_app/sub_items_images/vodka.png'),
     const FoodSubType(
-        name: 'Rum', image: 'assets/food_app/sub_items_images/peparini.png'),
+        name: 'Rum', image: 'assets/food_app/sub_items_images/rum.png'),
     const FoodSubType(
         name: 'Soft',
-        image: 'assets/food_app/sub_items_images/spicy_beast.png'),
+        image: 'assets/food_app/sub_items_images/rum.png'),
   ];
 
   static List<FoodSubType> listOfSnackTypes = [
     const FoodSubType(
         name: 'Kurkure',
-        image: 'assets/food_app/sub_items_images/beef_burger.png'),
+        image: 'assets/food_app/sub_items_images/namkeen.png'),
     const FoodSubType(
         name: 'Namkeen',
-        image: 'assets/food_app/sub_items_images/cheesbust.png'),
+        image: 'assets/food_app/sub_items_images/namkeen.png'),
     const FoodSubType(
-        name: 'Sweet', image: 'assets/food_app/sub_items_images/peparini.png'),
+        name: 'Sweet', image: 'assets/food_app/sub_items_images/sweet.png'),
     const FoodSubType(
         name: 'Peanut',
-        image: 'assets/food_app/sub_items_images/spicy_beast.png'),
+        image: 'assets/food_app/sub_items_images/peanut.png'),
   ];
 
   static List<FoodSubType> listOfCakeTypes = [

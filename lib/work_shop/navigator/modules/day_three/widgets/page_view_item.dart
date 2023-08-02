@@ -27,47 +27,24 @@ class _PageViewItemState extends State<PageViewItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(38.0),
+      padding: const EdgeInsets.all(28.0),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return Container(
-            decoration: BoxDecoration(
-              color: widget.bgColor,
-              borderRadius: BorderRadius.circular(60),
-            ),
-            child: OverflowBox(
-              maxHeight: constraints.maxHeight + 50,
-              maxWidth: constraints.maxWidth + 250,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: constraints.maxWidth + 50,
-                    height: constraints.maxHeight - 50,
-                    child: Image.asset(
-                      widget.itemImage ??
-                          'assets/food_app/sub_items_images/beef_burger.png',
-                      fit: BoxFit.cover,
-                      // Choose the appropriate fit option here
-                    ),
+          return Stack(
+            children: [
+              // The bottom container
+
+              Container(
+                  width: widget.width,
+                  height: 500,
+                  decoration: BoxDecoration(
+                    color: widget.bgColor?..withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(60),
                   ),
-                  Text(
-                    widget.itemName ?? 'Beef Burger',
-                    style: TextStyle(
-                        fontSize: 28,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    '124 items',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.normal),
-                  ),
-                ],
-              ),
-            ),
+                  child: overFlowWidget(Container(), constraints,widget.itemImage??'assets/food_app/sub_items_images/beef_burger.png')),
+
+              Positioned(bottom: 20,left:0,right:0, child: getFoodInfo(widget.itemName!)),
+            ],
           );
         },
       ),
@@ -75,9 +52,45 @@ class _PageViewItemState extends State<PageViewItem> {
   }
 }
 
-// Text(
-// FoodAppConstants.foodCategoriesItems[FoodAppConstants
-//     .foodCategoriesItems.keys
-//     .toList()[widget.selectedIndex]]![widget.index],
-// style: TextStyle(fontSize: 24),
-// )
+Widget overFlowWidget(Container container, BoxConstraints constraints,String itemImage) {
+  return OverflowBox(
+    maxHeight: constraints.maxHeight + 10,
+    maxWidth: constraints.maxWidth + 220,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Image.asset(
+          itemImage,
+          fit: BoxFit.cover,
+          // Choose the appropriate fit option here
+        ),
+      ],
+    ),
+  );
+}
+
+Widget getFoodInfo(String itemName) {
+  return Column(children: [
+    Text(
+      itemName,
+      style: const TextStyle(
+          shadows: [
+            Shadow(
+              blurRadius: 2.0,
+              color: Colors.black,
+              offset: Offset(1.0, 1.0),
+            ),
+          ],
+          fontSize: 34,
+          fontFamily: 'OriginalSurfer',
+          fontWeight: FontWeight.bold),
+    ),
+    const Text(
+      '124 items',
+      style: TextStyle(
+          fontSize: 14,
+          fontFamily: 'OriginalSurfer',
+          fontWeight: FontWeight.normal),
+    ),
+  ]);
+}

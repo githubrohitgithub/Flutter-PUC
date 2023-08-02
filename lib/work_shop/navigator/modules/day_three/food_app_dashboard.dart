@@ -21,9 +21,13 @@ class _FoodAppDashboardState extends State<FoodAppDashboard> {
       body: Column(
         children: [
           const Expanded(flex: 1, child: TopBarWidget()),
-           Expanded(flex: 2, child: AnimatedBottomToTopWidget(duration: const Duration(milliseconds: 500),child: ItemSelectionWidget())),
+          Expanded(
+              flex: 3,
+              child: AnimatedBottomToTopWidget(
+                  duration: const Duration(seconds: 1),
+                  child: ItemSelectionWidget())),
           AnimatedBottomToTopWidget(
-            duration: Duration(milliseconds: 800),
+            duration: const Duration(milliseconds: 1),
             child: Container(
               height: 100,
               color: Colors.transparent,

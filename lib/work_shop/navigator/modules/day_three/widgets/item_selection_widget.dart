@@ -17,25 +17,31 @@ class ItemSelectionWidget extends StatefulWidget {
 class _ItemSelectionWidgetState extends State<ItemSelectionWidget> {
   int selectedIndex = 0;
 
+  final PageController _pageController = PageController(
+    initialPage: 0,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         AnimatedRightToLeftWidget(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(seconds: 1),
           child: SizedBox(
             height: 50,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount:
-              FoodAppConstants.foodCategoriesItems.keys
-                  .toList()
-                  .length,
+                  FoodAppConstants.foodCategoriesItems.keys.toList().length,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
                     setState(() {
                       selectedIndex = index;
+
+                      _pageController.animateToPage(0,
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeInOut);
                     });
                   },
                   child: Padding(
@@ -53,36 +59,36 @@ class _ItemSelectionWidgetState extends State<ItemSelectionWidget> {
                           children: [
                             index != 0
                                 ? Row(
-                              children: [
-                                Image.asset(
-                                  FoodAppConstants
-                                      .foodCategoriesItems.keys
-                                      .toList()[index]
-                                      .image ??
-                                      '',
-                                  width: 30,
-                                  height: 30,
-                                ),
-                                SizedBox(
-                                  width: index == 0 ? 0 : 8.0,
-                                )
-                              ],
-                            )
+                                    children: [
+                                      Image.asset(
+                                        FoodAppConstants
+                                                .foodCategoriesItems.keys
+                                                .toList()[index]
+                                                .image ??
+                                            '',
+                                        width: 30,
+                                        height: 30,
+                                      ),
+                                      SizedBox(
+                                        width: index == 0 ? 0 : 8.0,
+                                      )
+                                    ],
+                                  )
                                 : Container(),
                             Text(
                               FoodAppConstants.foodCategoriesItems.keys
-                                  .toList()[index]
-                                  .name ??
+                                      .toList()[index]
+                                      .name ??
                                   '',
                               style: TextStyle(
                                 color: index == 0
                                     ? Colors.white
                                     : FoodAppConstants.foodCategoriesItems.keys
-                                    .toList()[index]
-                                    .color,
+                                        .toList()[index]
+                                        .color,
                                 fontSize: 12,
                                 fontFamily: 'OriginalSurfer',
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w800,
                               ),
                             )
                           ],
@@ -97,29 +103,29 @@ class _ItemSelectionWidgetState extends State<ItemSelectionWidget> {
         ),
         Expanded(
           child: PageView.builder(
+            controller: _pageController,
             itemCount: FoodAppConstants
                 .foodCategoriesItems[FoodAppConstants.foodCategoriesItems.keys
-                .toList()[selectedIndex]]!
+                    .toList()[selectedIndex]]!
                 .length,
             itemBuilder: (context, index) {
               var getBgColor = generateRandomColor().withOpacity(0.2);
 
-
-            return PageViewItem(
-              index: index,
-              selectedIndex: selectedIndex,
-              height: 300,
-              itemName: FoodAppConstants.foodCategoriesItems.values
-                  .toList()[selectedIndex][index]
-                  .name ??
-                  '',
-              itemImage: FoodAppConstants.foodCategoriesItems.values
-                  .toList()[selectedIndex][index]
-                  .image ??
-                  '',
-              width: MediaQuery.of(context).size.width,
-              bgColor: getBgColor,
-            );
+              return PageViewItem(
+                index: index,
+                selectedIndex: selectedIndex,
+                height: 300,
+                itemName: FoodAppConstants.foodCategoriesItems.values
+                        .toList()[selectedIndex][index]
+                        .name ??
+                    '',
+                itemImage: FoodAppConstants.foodCategoriesItems.values
+                        .toList()[selectedIndex][index]
+                        .image ??
+                    '',
+                width: MediaQuery.of(context).size.width,
+                bgColor: getBgColor,
+              );
             },
           ),
         )

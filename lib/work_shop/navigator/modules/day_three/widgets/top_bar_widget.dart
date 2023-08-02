@@ -20,7 +20,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
           height: 15,
         ),
         AnimatedTopToBottomWidget(
-          duration: Duration(milliseconds: 500),
+          duration: Duration(seconds: 1),
           child: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Row(
@@ -52,7 +52,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
           ),
         ),
         AnimatedLeftToRightWidget(
-          duration: Duration(milliseconds: 500),
+          duration: Duration(seconds: 1),
           child: const Padding(
             padding: EdgeInsets.only(left: 20),
             child: Align(
