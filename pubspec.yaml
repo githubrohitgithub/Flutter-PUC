@@ -62,8 +62,17 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/icons/
-    - assets/images/
+    - assets/analog_clock_app/icons/
+
+    - assets/scanner_app/icons/
+
+    - assets/food_app/common/
+    - assets/food_app/food_categories/
+    - assets/food_app/items_images/
+    - assets/food_app/sub_items_images/
+
+    - assets/stack_burger_app/icons/
+    - assets/stack_burger_app/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
