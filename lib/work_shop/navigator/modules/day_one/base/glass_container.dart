@@ -6,6 +6,7 @@ class GlassContainer extends StatelessWidget {
   final double height;
   final Widget child;
   final Color? color; // Make the color parameter optional
+  final double? boxRadius; // Make the color parameter optional
   final VoidCallback? onTap;
 
   const GlassContainer({
@@ -14,6 +15,7 @@ class GlassContainer extends StatelessWidget {
     required this.height,
     required this.child,
     this.color, // Mark the color parameter as optional
+    this.boxRadius, // Mark the color parameter as optional
     this.onTap,
   }) : super(key: key);
 
@@ -22,7 +24,7 @@ class GlassContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(boxRadius ?? 30),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
           child: Container(
