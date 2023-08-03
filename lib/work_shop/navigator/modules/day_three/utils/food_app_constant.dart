@@ -1,41 +1,43 @@
 import 'package:flutter/material.dart';
 
-class FoodAppConstants {
+import '../models/cart_model.dart';
+import '../models/food_categories.dart';
+import '../models/food_sub_type.dart';
 
+class FoodAppConstants {
   static String fontStyleOriginalSurfer = 'OriginalSurfer';
 
   static Map<FoodCategories, List<FoodSubType>> foodCategoriesItems = {
-    const FoodCategories(
-        id: '0',
-        name: 'All',
-        color: Colors.white,
-        image: ''): [
+    const FoodCategories(id: '0', name: 'All', color: Colors.white, image: ''):
+        [
       ...listOfDrinkTypes,
       ...listOfBurgerTypes,
       ...listOfCakeTypes,
       ...listOfSnackTypes,
     ],
     const FoodCategories(
-        id: '1',
-        name: 'Drinks',
-        color: Colors.deepPurpleAccent,
-        image: 'assets/food_app/food_categories/ic_drink.png'): listOfDrinkTypes,
+            id: '1',
+            name: 'Drinks',
+            color: Colors.deepPurpleAccent,
+            image: 'assets/food_app/food_categories/ic_drink.png'):
+        listOfDrinkTypes,
     const FoodCategories(
-        id: '2',
-        name: 'Burgers',
-        color: Colors.amberAccent,
-        image: 'assets/food_app/food_categories/ic_burger.png'): listOfBurgerTypes,
+            id: '2',
+            name: 'Burgers',
+            color: Colors.amberAccent,
+            image: 'assets/food_app/food_categories/ic_burger.png'):
+        listOfBurgerTypes,
     const FoodCategories(
         id: '3',
         name: 'Cakes',
         color: Colors.deepPurpleAccent,
-        image: 'assets/food_app/food_categories/ic_cake.png'):
-    listOfCakeTypes,
+        image: 'assets/food_app/food_categories/ic_cake.png'): listOfCakeTypes,
     const FoodCategories(
-        id: '4',
-        name: 'Snacks',
-        color: Colors.redAccent,
-        image: 'assets/food_app/food_categories/ic_snack.png'): listOfSnackTypes,
+            id: '4',
+            name: 'Snacks',
+            color: Colors.redAccent,
+            image: 'assets/food_app/food_categories/ic_snack.png'):
+        listOfSnackTypes,
   };
 
   static List<FoodSubType> listOfBurgerTypes = [
@@ -50,35 +52,30 @@ class FoodAppConstants {
         image: 'assets/food_app/sub_items_images/peparini.png'),
     const FoodSubType(
         name: 'Spicy Beast Burger',
-        image: 'assets/food_app/sub_items_images/spicy_beast.png'),
+        image: 'assets/food_app/sub_items_images/beef_burger.png'),
   ];
 
   //create List<FoodSubType> of drink type
   static List<FoodSubType> listOfDrinkTypes = [
     const FoodSubType(
-        name: 'Vodka',
-        image: 'assets/food_app/sub_items_images/vodka.png'),
+        name: 'Vodka', image: 'assets/food_app/sub_items_images/vodka.png'),
     const FoodSubType(
         name: 'Wine', image: 'assets/food_app/sub_items_images/vodka.png'),
     const FoodSubType(
         name: 'Rum', image: 'assets/food_app/sub_items_images/rum.png'),
     const FoodSubType(
-        name: 'Soft',
-        image: 'assets/food_app/sub_items_images/rum.png'),
+        name: 'Soft', image: 'assets/food_app/sub_items_images/rum.png'),
   ];
 
   static List<FoodSubType> listOfSnackTypes = [
     const FoodSubType(
-        name: 'Kurkure',
-        image: 'assets/food_app/sub_items_images/namkeen.png'),
+        name: 'Kurkure', image: 'assets/food_app/sub_items_images/namkeen.png'),
     const FoodSubType(
-        name: 'Namkeen',
-        image: 'assets/food_app/sub_items_images/namkeen.png'),
+        name: 'Namkeen', image: 'assets/food_app/sub_items_images/namkeen.png'),
     const FoodSubType(
         name: 'Sweet', image: 'assets/food_app/sub_items_images/sweet.png'),
     const FoodSubType(
-        name: 'Peanut',
-        image: 'assets/food_app/sub_items_images/peanut.png'),
+        name: 'Peanut', image: 'assets/food_app/sub_items_images/peanut.png'),
   ];
 
   static List<FoodSubType> listOfCakeTypes = [
@@ -103,20 +100,22 @@ class FoodAppConstants {
     'Cake4',
     'Cake5',
   ];
-}
 
-class FoodSubType {
-  final String? name;
-  final String? image;
-
-  const FoodSubType({this.name, this.image});
-}
-
-class FoodCategories {
-  final String id;
-  final String? name;
-  final Color? color;
-  final String? image;
-
-  const FoodCategories({required this.id, this.name, this.color, this.image});
+  static List<CartModel> listOfCartModel = [
+    CartModel(
+        name: 'Burger',
+        price: 10,
+        quantity: 1,
+        image: 'assets/food_app/food_categories/ic_burger.png'),
+    CartModel(
+        name: 'Cake',
+        price: 20,
+        quantity: 1,
+        image: 'assets/food_app/food_categories/ic_cake.png'),
+    CartModel(
+        name: 'Drink',
+        price: 30,
+        quantity: 1,
+        image: 'assets/food_app/food_categories/ic_drink.png'),
+  ];
 }

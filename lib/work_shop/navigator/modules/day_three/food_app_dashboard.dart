@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/utils/food_app_constant.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/widgets/bottom_wigets_elements.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/widgets/item_selection_widget.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/widgets/top_bar_widget.dart';
@@ -21,11 +22,14 @@ class _FoodAppDashboardState extends State<FoodAppDashboard> {
       body: Column(
         children: [
           const Expanded(flex: 1, child: TopBarWidget()),
+          const SizedBox(
+            height: 10,
+          ),
           Expanded(
               flex: 3,
               child: AnimatedBottomToTopWidget(
                   duration: const Duration(seconds: 1),
-                  child: ItemSelectionWidget())),
+                  child: const ItemSelectionWidget())),
           AnimatedBottomToTopWidget(
             duration: const Duration(milliseconds: 1),
             child: Container(
@@ -46,9 +50,11 @@ class _FoodAppDashboardState extends State<FoodAppDashboard> {
                     width: MediaQuery.of(context).size.width,
                     child: CustomPaint(
                       painter: CustomBottomSheetPaint(),
-                      child: const Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: BottomWidgetElements(),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: BottomWidgetElements(
+                          listOfCartOptions: FoodAppConstants.listOfCartModel,
+                        ),
                       ),
                     ),
                   )
