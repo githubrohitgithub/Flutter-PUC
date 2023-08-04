@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/dashboard/widgets/bottom_wigets_elements.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/dashboard/widgets/item_selection_widget.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/dashboard/widgets/top_bar_widget.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/utils/food_app_constant.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/widgets/bottom_wigets_elements.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/widgets/item_selection_widget.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/widgets/top_bar_widget.dart';
-
-import 'base/animations/animated_bottom_to_top.dart';
-import 'base/paints/custom_bottom_sheet_paint.dart';
+import '../../base/animations/animated_bottom_to_top.dart';
+import '../../base/paints/custom_bottom_sheet_paint.dart';
 
 class FoodAppDashboard extends StatefulWidget {
   const FoodAppDashboard({super.key});
@@ -31,7 +30,7 @@ class _FoodAppDashboardState extends State<FoodAppDashboard> {
                   duration: const Duration(seconds: 1),
                   child: const ItemSelectionWidget())),
           AnimatedBottomToTopWidget(
-            duration: const Duration(milliseconds: 1),
+            duration: const Duration(seconds: 1),
             child: Container(
               height: 100,
               color: Colors.transparent,

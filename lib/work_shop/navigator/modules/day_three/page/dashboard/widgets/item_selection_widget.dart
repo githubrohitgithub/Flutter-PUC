@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/widgets/page_view_item.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/dashboard/widgets/page_view_item.dart';
 
-import '../base/animations/animated_right_to_left.dart';
-import '../base/glass_effect_container.dart';
-import '../utils/food_app_constant.dart';
+import '../../../base/animations/animated_right_to_left.dart';
+import '../../../base/glass_effect_container.dart';
+import '../../../utils/food_app_constant.dart';
 
 class ItemSelectionWidget extends StatefulWidget {
   const ItemSelectionWidget({super.key});

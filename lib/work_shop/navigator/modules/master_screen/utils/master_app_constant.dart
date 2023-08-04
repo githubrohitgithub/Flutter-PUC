@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/food_app_dashboard.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/dashboard/food_app_dashboard.dart';
 
 import '../../custom_clock/page/analog_clock.dart';
 import '../../day_one/page/scanner_day_one.dart';

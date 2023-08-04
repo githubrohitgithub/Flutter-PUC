@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../models/cart_model.dart';
+import '../../../models/cart_model.dart';
 import 'custom_circle_widget.dart';
 import 'half_overlapping_widgets.dart';
 
@@ -38,7 +37,9 @@ class _BottomWidgetElementsState extends State<BottomWidgetElements> {
             radius: 24,
             backgroundColor: Colors.white,
             child: Image.asset('${widget.listOfCartOptions[2].image}',fit: BoxFit.fill,),
-          )
+          ),
+
+
         ])
       ],
     );

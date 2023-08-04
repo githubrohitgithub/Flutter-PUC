@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../base/animations/animation_left_to_right.dart';
-import '../base/animations/animation_top_to_bottom.dart';
+import '../../../base/animations/animation_left_to_right.dart';
+import '../../../base/animations/animation_top_to_bottom.dart';
 
 class TopBarWidget extends StatefulWidget {
   const TopBarWidget({super.key});
@@ -37,7 +37,8 @@ class _TopBarWidgetState extends State<TopBarWidget> {
                         ),
                         height: 40,
                         width: 40,
-                        child: Image.asset('assets/food_app/common/ic_more.png')),
+                        child:
+                            Image.asset('assets/food_app/common/ic_more.png')),
                   ),
 
                   const Padding(
@@ -53,7 +54,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
             ),
           ),
           AnimatedLeftToRightWidget(
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
             child: const Padding(
               padding: EdgeInsets.only(left: 20),
               child: Align(
