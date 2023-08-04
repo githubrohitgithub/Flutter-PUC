@@ -42,64 +42,105 @@ class FoodAppConstants {
 
   static List<FoodSubType> listOfBurgerTypes = [
     const FoodSubType(
+        category: 'burger',
         name: 'Beef Burger',
+        price: '100',
         image: 'assets/food_app/sub_items_images/beef_burger.png'),
     const FoodSubType(
+        category: 'burger',
         name: 'Cheese Burger',
+        price: '130',
         image: 'assets/food_app/sub_items_images/cheesbust.png'),
     const FoodSubType(
+        category: 'burger',
         name: 'Peparini Burger',
+        price: '160',
         image: 'assets/food_app/sub_items_images/peparini.png'),
     const FoodSubType(
+        category: 'burger',
         name: 'Spicy Beast Burger',
+        price: '103',
+        image: 'assets/food_app/sub_items_images/beef_burger.png'),
+    const FoodSubType(
+        category: 'burger',
+        name: 'Spicy Beast Burger',
+        price: '1009',
+        image: 'assets/food_app/sub_items_images/beef_burger.png'),
+    const FoodSubType(
+        category: 'burger',
+        name: 'Spicy Beast Burger',
+        price: '1000',
+        image: 'assets/food_app/sub_items_images/beef_burger.png'),
+    const FoodSubType(
+        category: 'burger',
+        name: 'Spicy Beast Burger',
+        price: '1009',
+        image: 'assets/food_app/sub_items_images/beef_burger.png'),
+    const FoodSubType(
+        category: 'burger',
+        name: 'Spicy Beast Burger',
+        price: '1000',
         image: 'assets/food_app/sub_items_images/beef_burger.png'),
   ];
 
   //create List<FoodSubType> of drink type
   static List<FoodSubType> listOfDrinkTypes = [
     const FoodSubType(
-        name: 'Vodka', image: 'assets/food_app/sub_items_images/vodka.png'),
+        category: 'drink',
+        name: 'Vodka',
+        image: 'assets/food_app/sub_items_images/vodka.png'),
     const FoodSubType(
-        name: 'Wine', image: 'assets/food_app/sub_items_images/vodka.png'),
+        category: 'drink',
+        name: 'Wine',
+        image: 'assets/food_app/sub_items_images/vodka.png'),
     const FoodSubType(
-        name: 'Rum', image: 'assets/food_app/sub_items_images/rum.png'),
+        category: 'drink',
+        name: 'Rum',
+        image: 'assets/food_app/sub_items_images/rum.png'),
     const FoodSubType(
-        name: 'Soft', image: 'assets/food_app/sub_items_images/rum.png'),
+        category: 'drink',
+        name: 'Soft',
+        image: 'assets/food_app/sub_items_images/rum.png'),
   ];
 
   static List<FoodSubType> listOfSnackTypes = [
     const FoodSubType(
-        name: 'Kurkure', image: 'assets/food_app/sub_items_images/namkeen.png'),
+        category: 'snacks',
+        name: 'Kurkure',
+        image: 'assets/food_app/sub_items_images/namkeen.png'),
     const FoodSubType(
-        name: 'Namkeen', image: 'assets/food_app/sub_items_images/namkeen.png'),
+        category: 'snacks',
+        name: 'Namkeen',
+        image: 'assets/food_app/sub_items_images/namkeen.png'),
     const FoodSubType(
-        name: 'Sweet', image: 'assets/food_app/sub_items_images/sweet.png'),
+        category: 'snacks',
+        name: 'Sweet',
+        image: 'assets/food_app/sub_items_images/sweet.png'),
     const FoodSubType(
-        name: 'Peanut', image: 'assets/food_app/sub_items_images/peanut.png'),
+        category: 'snacks',
+        name: 'Peanut',
+        image: 'assets/food_app/sub_items_images/peanut.png'),
   ];
 
   static List<FoodSubType> listOfCakeTypes = [
     const FoodSubType(
+        category: 'cake',
         name: 'Orange',
         image: 'assets/food_app/sub_items_images/beef_burger.png'),
     const FoodSubType(
+        category: 'cake',
         name: 'Chocolate',
         image: 'assets/food_app/sub_items_images/cheesbust.png'),
     const FoodSubType(
+        category: 'cake',
         name: 'Pinapple',
         image: 'assets/food_app/sub_items_images/peparini.png'),
     const FoodSubType(
+        category: 'cake',
         name: 'Manago',
         image: 'assets/food_app/sub_items_images/spicy_beast.png'),
   ];
 
-  static List<String> cakeTypes = [
-    'Cake1',
-    'Cake2',
-    'Cake3',
-    'Cake4',
-    'Cake5',
-  ];
 
   static List<CartModel> listOfCartModel = [
     CartModel(

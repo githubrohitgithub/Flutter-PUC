@@ -22,7 +22,7 @@ class _ItemImageState extends State<ItemImage> {
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: widget.bgColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(100), topRight: Radius.circular(100))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

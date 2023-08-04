@@ -56,7 +56,7 @@ class _TopBarWidgetState extends State<TopBarWidget> {
           AnimatedLeftToRightWidget(
             duration: const Duration(seconds: 1),
             child: const Padding(
-              padding: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.only(left: 25),
               child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(

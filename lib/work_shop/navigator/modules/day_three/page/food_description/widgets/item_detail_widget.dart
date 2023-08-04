@@ -10,7 +10,7 @@ class ItemDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10,right: 10),
+      padding: const EdgeInsets.only(left: 28,right: 28),
       child: SizedBox(
         height: 120,
         width: MediaQuery.of(context).size.width,
@@ -21,7 +21,7 @@ class ItemDetails extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     itemName,
                     style: const TextStyle(
@@ -35,9 +35,9 @@ class ItemDetails extends StatelessWidget {
              Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  '\$${itemPrice}',
+                  '\$$itemPrice',
                   style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w900,

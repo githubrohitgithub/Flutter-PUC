@@ -18,14 +18,8 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
     return Dismissible(
       key: UniqueKey(),
       direction: DismissDirection.startToEnd,
-      // This makes the widget slidable to the right
       onDismissed: (direction) {
-        // Handle what happens when the widget is dismissed
         if (direction == DismissDirection.startToEnd) {
-          // Implement any action you want, such as removing the widget or showing a confirmation dialog.
-          // In this example, we are just printing a message.
-          print('Widget dismissed!');
-
           final snackBar = SnackBar(
             content: const Text('Item added from cart'),
             duration: const Duration(seconds: 3),
@@ -56,7 +50,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
                   aspectRatio: 16 / 9,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: widget.bgColor,
                       borderRadius: BorderRadius.circular(50),
                     ),
                     child: Padding(

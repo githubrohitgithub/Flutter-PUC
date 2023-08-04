@@ -27,77 +27,80 @@ class _ItemSelectionWidgetState extends State<ItemSelectionWidget> {
       children: [
         AnimatedRightToLeftWidget(
           duration: const Duration(seconds: 1),
-          child: SizedBox(
-            height: 50,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount:
-                  FoodAppConstants.foodCategoriesItems.keys.toList().length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = index;
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: SizedBox(
+              height: 50,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount:
+                    FoodAppConstants.foodCategoriesItems.keys.toList().length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = index;
 
-                      _pageController.animateToPage(0,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeInOut);
-                    });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: AspectRatio(
-                      aspectRatio: index == 0 ? 1 : 2,
-                      child: GlassEffectContainer(
-                        color: index == 0
-                            ? Colors.black
-                            : Colors.grey.withOpacity(0.1),
-                        width: 100,
-                        height: 10,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            index != 0
-                                ? Row(
-                                    children: [
-                                      Image.asset(
-                                        FoodAppConstants
-                                                .foodCategoriesItems.keys
-                                                .toList()[index]
-                                                .image ??
-                                            '',
-                                        width: 30,
-                                        height: 30,
-                                      ),
-                                      SizedBox(
-                                        width: index == 0 ? 0 : 8.0,
-                                      )
-                                    ],
-                                  )
-                                : Container(),
-                            Text(
-                              FoodAppConstants.foodCategoriesItems.keys
-                                      .toList()[index]
-                                      .name ??
-                                  '',
-                              style: TextStyle(
-                                color: index == 0
-                                    ? Colors.white
-                                    : FoodAppConstants.foodCategoriesItems.keys
+                        _pageController.animateToPage(0,
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeInOut);
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                      child: AspectRatio(
+                        aspectRatio: index == 0 ? 1 : 2,
+                        child: GlassEffectContainer(
+                          color: index == 0
+                              ? Colors.black
+                              : Colors.grey.withOpacity(0.1),
+                          width: 100,
+                          height: 10,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              index != 0
+                                  ? Row(
+                                      children: [
+                                        Image.asset(
+                                          FoodAppConstants
+                                                  .foodCategoriesItems.keys
+                                                  .toList()[index]
+                                                  .image ??
+                                              '',
+                                          width: 30,
+                                          height: 30,
+                                        ),
+                                        SizedBox(
+                                          width: index == 0 ? 0 : 8.0,
+                                        )
+                                      ],
+                                    )
+                                  : Container(),
+                              Text(
+                                FoodAppConstants.foodCategoriesItems.keys
                                         .toList()[index]
-                                        .color,
-                                fontSize: 12,
-                                fontFamily: 'OriginalSurfer',
-                                fontWeight: FontWeight.w800,
-                              ),
-                            )
-                          ],
+                                        .name ??
+                                    '',
+                                style: TextStyle(
+                                  color: index == 0
+                                      ? Colors.white
+                                      : FoodAppConstants.foodCategoriesItems.keys
+                                          .toList()[index]
+                                          .color,
+                                  fontSize: 12,
+                                  fontFamily: 'OriginalSurfer',
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ),

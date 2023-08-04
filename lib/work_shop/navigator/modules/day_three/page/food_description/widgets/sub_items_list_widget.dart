@@ -36,17 +36,17 @@ class _SubItemListWidgetState extends State<SubItemListWidget> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text('${widget.subItemsList![index].name}',
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: 'OriginalSurfer',
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                           color: Colors.black)),
                   Text('${widget.subItemsList![index].calories} cal',
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: 'OriginalSurfer',
                           fontWeight: FontWeight.normal,
                           fontSize: 12,

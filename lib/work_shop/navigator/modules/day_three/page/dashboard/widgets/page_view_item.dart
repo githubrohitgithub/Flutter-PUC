@@ -30,28 +30,6 @@ class PageViewItem extends StatefulWidget {
 class _PageViewItemState extends State<PageViewItem> {
   @override
   Widget build(BuildContext context) {
-    var foodDetailsModel = FoodDetailsModel(
-        name: 'Meat Cheese Burger',
-        price: 500,
-        image: 'assets/food_app/sub_items_images/beef_burger.png',
-        listFoodSubType: [
-          FoodSubType(
-              name: 'Meat',
-              image: 'assets/food_app/items_images/meat.png',
-              calories: '30cal'),
-          FoodSubType(
-              name: 'Cheese',
-              image: 'assets/food_app/items_images/cheese.png',
-              calories: '20cal'),
-          FoodSubType(
-              name: 'Tomoto',
-              image: 'assets/food_app/items_images/tomato.png',
-              calories: '10cal'),
-          FoodSubType(
-              name: 'Green leaf',
-              image: 'assets/food_app/items_images/greenleaf.png',
-              calories: '10cal'),
-        ]);
 
     return Padding(
       padding: const EdgeInsets.all(28.0),
@@ -65,9 +43,9 @@ class _PageViewItemState extends State<PageViewItem> {
                 onTap: () {
                   Navigator.pushNamed(
                     context,
-                    AppRouteConstants.foodDetailsPageRoute,
+                    AppRouteConstants.foodItemListPageRoute,
                     arguments:
-                        foodDetailsModel, // Replace `yourData` with the actual data you want to pass.
+                        'Burger', // Replace `yourData` with the actual data you want to pass.
                   );
                 },
                 child: Container(
