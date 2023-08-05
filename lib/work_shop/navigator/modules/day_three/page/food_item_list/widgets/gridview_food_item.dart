@@ -65,7 +65,7 @@ class _GridViewItemState extends State<GridViewItem> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: widget.bgColor,
+                color: widget.bgColor..withOpacity(0.2),
               ),
               child: Stack(
                 clipBehavior: Clip.none,
@@ -124,7 +124,7 @@ class _GridViewItemState extends State<GridViewItem> {
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                color: widget.bgColor),
+                                color: widget.bgColor..withOpacity(0.2)),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: SvgPicture.asset(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/food_item_list/food_item_list_page.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/my_orders/page/my_orders_page.dart';
 import '../../models/food_details_model.dart';
 import '../../page/dashboard/food_app_dashboard.dart';
 import '../../page/food_description/food_item_description.dart';
@@ -14,6 +15,7 @@ class AppRouteConstants {
   static const foodDashboardPageRoute = '/FoodDashboardPage';
   static const foodDetailsPageRoute = '/FoodDetailsPage';
   static const foodItemListPageRoute = '/FoodItemListPage';
+  static const myOrdersPageRoute = '/MyOrdersPage';
 }
 
 class AppRoutes {
@@ -34,6 +36,13 @@ class AppRoutes {
         final args = ModalRoute.of(context)!.settings.arguments as String;
         return FoodItemListPage(
           foodCategoryName: args,
+        );
+      },
+
+      AppRouteConstants.myOrdersPageRoute: (context) {
+        final args = ModalRoute.of(context)!.settings.arguments as Color;
+        return  MyOrdersPage(bgColor: args,
+
         );
       },
     };

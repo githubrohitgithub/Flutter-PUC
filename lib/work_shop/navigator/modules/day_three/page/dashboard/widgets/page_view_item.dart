@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../base/routes/app_routes.dart';
-import '../../../models/food_details_model.dart';
-import '../../../models/food_sub_type.dart';
+
 
 class PageViewItem extends StatefulWidget {
   final int index;

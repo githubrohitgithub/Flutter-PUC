@@ -54,7 +54,7 @@ class _FoodItemListPageState extends State<FoodItemListPage> {
           flex: 6,
           child: Padding(
             padding:  const EdgeInsets.all(18.0),
-            child: GridViewItem(bgColor: ColorConvertor.getColorFromHex('#ebd8c0').withOpacity(0.2),listOfBurgerTypes: listOfBurgerTypes,),
+            child: GridViewItem(bgColor: ColorConvertor.getColorFromHex('#ebd8c0'),listOfBurgerTypes: listOfBurgerTypes,),
           ),
         ),
 

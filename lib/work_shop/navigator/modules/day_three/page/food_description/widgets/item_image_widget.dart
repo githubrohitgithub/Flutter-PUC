@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/food_description/widgets/sub_items_list_widget.dart';
+import '../../../base/routes/app_routes.dart';
 import '../../../models/food_sub_type.dart';
 import 'add_to_cart_widget.dart';
 
@@ -43,8 +44,22 @@ class _ItemImageState extends State<ItemImage> {
               )),
           Expanded(
               flex: 1,
-              child: AddToCartWidget(
-                bgColor: widget.bgColor ?? Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(28.0),
+                child: CustomSliderWidget(
+                  sliderBgColor: widget.bgColor ?? Colors.white,
+                  bgColor: Colors.white,
+                  arrowColor: Colors.black,
+                  msgColor: Colors.black,
+                  msg: 'Add to cart',
+                  onSlide: () {
+                    Navigator.pushNamed(
+                        context, AppRouteConstants.myOrdersPageRoute,
+                        arguments: widget
+                            .bgColor // Replace `yourData` with the actual data you want to pass.
+                        );
+                  },
+                ),
               )),
         ],
       ),

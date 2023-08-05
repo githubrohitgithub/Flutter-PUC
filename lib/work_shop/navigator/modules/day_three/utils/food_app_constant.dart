@@ -144,19 +144,33 @@ class FoodAppConstants {
 
   static List<CartModel> listOfCartModel = [
     CartModel(
-        name: 'Burger',
-        price: 10,
-        quantity: 1,
-        image: 'assets/food_app/food_categories/ic_burger.png'),
+        name: 'Beef Burger',
+        price: '10',
+        quantity: '2',
+        size: '123',
+        subName: 'Meat Cheese burger',
+        image: 'assets/food_app/sub_items_images/beef_burger.png'),
+
+    CartModel(
+        name: 'Cheese Burger',
+        price: '10',
+        quantity: '1',
+        size: '123',
+        subName: 'mid Cheese burger',
+        image: 'assets/food_app/sub_items_images/cheesbust.png'),
     CartModel(
         name: 'Cake',
-        price: 20,
-        quantity: 1,
+        price: '20',
+        quantity: '1',
+        size: '123',
+        subName: 'Cake Cheese burger',
         image: 'assets/food_app/food_categories/ic_cake.png'),
     CartModel(
         name: 'Drink',
-        price: 30,
-        quantity: 1,
+        price: '30',
+        quantity: '1',
+        size: '123',
+        subName: 'Drink Cheese burger',
         image: 'assets/food_app/food_categories/ic_drink.png'),
   ];
 }
