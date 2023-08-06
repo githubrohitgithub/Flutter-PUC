@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/food_item_list/food_item_list_page.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/my_orders/page/my_orders_page.dart';
+import '../../../master_screen/page/mainDashboard.dart';
 import '../../models/food_details_model.dart';
 import '../../page/dashboard/food_app_dashboard.dart';
 import '../../page/food_description/food_item_description.dart';
@@ -22,6 +23,15 @@ class AppRoutes {
   static Map<String, StatefulWidget Function(dynamic context)>
       getFoodAppRoutes() {
     return {
+
+      AppRouteConstants.dynamicNavigationWidget: (context) =>
+      const DynamicNavigationWidget(),
+
+
+
+
+
+
       AppRouteConstants.foodDashboardPageRoute: (context) =>
           const FoodAppDashboard(),
       AppRouteConstants.foodDetailsPageRoute: (context) {
@@ -40,8 +50,8 @@ class AppRoutes {
       },
 
       AppRouteConstants.myOrdersPageRoute: (context) {
-        final args = ModalRoute.of(context)!.settings.arguments as Color;
-        return  MyOrdersPage(bgColor: args,
+        final args = ModalRoute.of(context)!.settings.arguments as FoodOrderedArguments;
+        return  MyOrdersPage(bgColor: args.bgColor,buttonColor: args.buttonColor??Colors.amberAccent,
 
         );
       },
@@ -49,6 +59,13 @@ class AppRoutes {
   }
 }
 
+
+class FoodOrderedArguments {
+  final Color bgColor;
+  final Color? buttonColor;
+
+  FoodOrderedArguments({required this.bgColor, this.buttonColor});
+}
 
 class FoodDetailsArguments {
   final FoodDetailsModel foodDetailsModel;

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../model/time_model.dart';
 import '../paints/clock_painter.dart';
+import '../utils/utils.dart';
 
 class ClockWidget extends StatefulWidget {
   final TimeModel time;
@@ -25,6 +26,10 @@ class _ClockWidgetState extends State<ClockWidget> {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
+
+   var isTab = AppUtils.isTablet(AppUtils.getScreenWidth(context));
+
+   var innerRad = isTab ? 4 : 2;
 
     return OrientationBuilder(
       builder: (BuildContext context, Orientation orientation) {
@@ -64,7 +69,7 @@ class _ClockWidgetState extends State<ClockWidget> {
                 ),
               ),
               Container(
-                width: screenWidth / 3,
+                width: screenWidth / innerRad,
                 height: screenHeight / 1,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -124,7 +129,7 @@ class _ClockWidgetState extends State<ClockWidget> {
               Container(
                 constraints: const BoxConstraints.expand(),
                 child: CustomPaint(
-                  painter: ClockPainter(time: widget.time, orientation: orientation),
+                  painter: ClockPainter(context: context,time: widget.time, orientation: orientation),
                 ),
               ),
             ],

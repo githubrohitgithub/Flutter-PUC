@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Flutter Workshop",
       routes: AppRoutes.getFoodAppRoutes(),
-      initialRoute: AppRouteConstants.foodDashboardPageRoute,
+      initialRoute: AppRouteConstants.dynamicNavigationWidget,
     );
   }
 }

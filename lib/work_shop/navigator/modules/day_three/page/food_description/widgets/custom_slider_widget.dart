@@ -16,14 +16,14 @@ class CustomSliderWidget extends StatefulWidget {
       required this.bgColor,
       required this.msg,
       required this.arrowColor,
-      required this.onSlide, this.msgColor=Colors.black});
+      required this.onSlide,
+      this.msgColor = Colors.black});
 
   @override
   State<CustomSliderWidget> createState() => _CustomSliderWidgetState();
 }
 
 class _CustomSliderWidgetState extends State<CustomSliderWidget> {
-  var visibleOfBottomItems = true;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,6 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
             direction: DismissDirection.startToEnd,
             onDismissed: (direction) {
               if (direction == DismissDirection.startToEnd) {
-                visibleOfBottomItems = false;
                 widget.onSlide();
               }
             },
@@ -64,27 +63,22 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
               ),
             ),
           ),
-          Visibility(
-            visible: visibleOfBottomItems,
-            child: HorizontalIconRepeat(
-              icon: Icon(
-                Icons.keyboard_arrow_right,
-                color: widget.arrowColor,
-                size: 30,
-              ),
+          HorizontalIconRepeat(
+            color: widget.arrowColor,
+            icon: Icon(
+              Icons.keyboard_arrow_right,
+              color: widget.arrowColor,
+              size: 30,
             ),
           ),
-          Visibility(
-            visible: visibleOfBottomItems,
-            child: Padding(
-              padding: const EdgeInsets.only(left:20,right: 20),
-              child: Text(widget.msg,
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: widget.msgColor,
-                      fontWeight: FontWeight.w900,
-                      fontFamily: 'OriginalSurfer')),
-            ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Text(widget.msg,
+                style: TextStyle(
+                    fontSize: 20,
+                    color: widget.msgColor,
+                    fontWeight: FontWeight.w900,
+                    fontFamily: 'OriginalSurfer')),
           ),
         ],
       ),

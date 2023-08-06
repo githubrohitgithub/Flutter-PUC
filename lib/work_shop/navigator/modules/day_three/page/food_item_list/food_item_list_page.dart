@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/base/animations/animated_bottom_to_top.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/base/animations/animated_right_to_left.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/base/animations/animation_top_to_bottom.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/food_item_list/widgets/gridview_food_item.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/utils/food_app_constant.dart';
 import '../../utils/color_convertor.dart';
@@ -21,14 +24,14 @@ class _FoodItemListPageState extends State<FoodItemListPage> {
 
     return Scaffold(body: Column(
       children: [
-        const Expanded(
-          child: TopHeader(
+         Expanded(
+          child: AnimatedTopToBottomWidget(child: TopHeader(
             title: 'Burgers',
-          ),
+          ),duration: Duration(seconds: 1),),
         ),
         Expanded(
             flex: 1,
-            child: Padding(
+            child: AnimatedRightToLeftWidget(duration: Duration(seconds: 1),child: Padding(
               padding: const EdgeInsets.only(left: 38, right: 38),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,13 +52,13 @@ class _FoodItemListPageState extends State<FoodItemListPage> {
                   )
                 ],
               ),
-            )),
+            ),)),
         Expanded(
           flex: 6,
-          child: Padding(
+          child: AnimatedBottomToTopWidget(duration: const Duration(seconds: 1),child: Padding(
             padding:  const EdgeInsets.all(18.0),
-            child: GridViewItem(bgColor: ColorConvertor.getColorFromHex('#ebd8c0'),listOfBurgerTypes: listOfBurgerTypes,),
-          ),
+            child: GridViewItem(bgColor: ColorConvertor.getColorFromHex('#ebd8c0').withOpacity(0.2),listOfBurgerTypes: listOfBurgerTypes,),
+          ),)
         ),
 
       ],

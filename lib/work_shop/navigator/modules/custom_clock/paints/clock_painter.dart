@@ -9,14 +9,18 @@ class ClockPainter extends CustomPainter {
   ///time parameters
   TimeModel? time;
   Orientation orientation;
+  BuildContext context;
 
-  ClockPainter({this.time,required this.orientation});
+  ClockPainter({this.time,required this.orientation,required this.context});
 
   DateTime currentTime = DateTime.now();
 
   @override
   void paint(Canvas canvas, Size size) {
     ///calculate the time position
+    ///
+    ///
+     final screenWidth = AppUtils.getScreenWidth(context);
 
     double secRad = ((pi / 2) - (pi / 30) * time!.seconds!) % (2 * pi);
     double minRad = ((pi / 2) - (pi / 30) * time!.minutes!) % (2 * pi);
@@ -28,10 +32,25 @@ class ClockPainter extends CustomPainter {
     var center = Offset(centerX, centerY);
     var radius = min(centerX, centerY);
 
+     var weekFontSize = 8;
+     var numberFontSize = 8;
+     var setMinHeight = 2;
+     var setSecHeight = 1.8;
+     var setHourHeight =2;
 
-    var setMinHeight = orientation==Orientation.landscape?2:4;
-    var setSecHeight = orientation==Orientation.landscape?1.8:3.6;
-    var setHourHeight = orientation==Orientation.landscape?2:4;
+     if (AppUtils.isTablet(screenWidth)) {
+       weekFontSize = 18;
+       numberFontSize = 18;
+
+     } else {
+       weekFontSize = 8;
+       numberFontSize = 12;
+
+       setMinHeight = 4;
+       setSecHeight = 3;
+       setHourHeight = 5;
+     }
+
 
     ///setting the clock coordinates
     var secHeight = radius / setSecHeight;
@@ -45,8 +64,11 @@ class ClockPainter extends CustomPainter {
     var hour = Offset(centerX + hourHeight * cos(hourRad),
         centerY - hourHeight * sin(hourRad));
 
-    AppUtils.paintWeeksClock(canvas, size, orientation==Orientation.landscape?15:7, time?.week!);
-    AppUtils.paintNumbersClock(canvas, size, orientation==Orientation.landscape?20:10);
+
+
+
+    AppUtils.paintWeeksClock(canvas, size, weekFontSize.toDouble(), time?.week!);
+    AppUtils.paintNumbersClock(canvas, size, numberFontSize.toDouble());
 
     var centerDotBrush = Paint()..color = const Color(0xFF030000);
 
@@ -64,6 +86,9 @@ class ClockPainter extends CustomPainter {
         Color(0xFF030000),
       ]).createShader(Rect.fromCircle(center: center, radius: radius))
       ..strokeJoin = StrokeJoin.round;
+
+
+
 
     var minBrush = Paint()
       ..color = Colors.black

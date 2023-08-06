@@ -61,80 +61,83 @@ class _GridViewItemState extends State<GridViewItem> {
                 );
           },
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: widget.bgColor..withOpacity(0.2),
-              ),
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  SizedBox(
-                    width: 200,
-                    height: 600,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          widget.listOfBurgerTypes[index].image ?? '',
-                          fit: BoxFit.fitWidth,
-                          width: 120,
-                          height: 120,
-                        ),
-                        Text(widget.listOfBurgerTypes[index].name ?? '',
-                            style: const TextStyle(
-                                fontFamily: 'OriginalSurfer',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18)),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        const Text('Meat Cheese Burger',
-                            style: TextStyle(
-                                fontFamily: 'OriginalSurfer',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10)),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                            '${'\$'} ${widget.listOfBurgerTypes[index].price ?? ''}',
-                            style: const TextStyle(
-                                fontFamily: 'OriginalSurfer',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24)),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    bottom: -10,
-                    // Set a negative value to overflow from the bottom
-                    right: -10,
-                    // Set a negative value to overflow from the right
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Colors.white,
+            padding:  const EdgeInsets.all(16.0),
+            child: Hero(
+              tag: 'hero-tag',
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: widget.bgColor..withOpacity(0.2),
+                ),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    SizedBox(
+                      width: 200,
+                      height: 600,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            widget.listOfBurgerTypes[index].image ?? '',
+                            fit: BoxFit.fitWidth,
+                            width: 120,
+                            height: 120,
+                          ),
+                          Text(widget.listOfBurgerTypes[index].name ?? '',
+                              style: const TextStyle(
+                                  fontFamily: 'OriginalSurfer',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Text('Meat Cheese Burger',
+                              style: TextStyle(
+                                  fontFamily: 'OriginalSurfer',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10)),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                              '${'\$'} ${widget.listOfBurgerTypes[index].price ?? ''}',
+                              style: const TextStyle(
+                                  fontFamily: 'OriginalSurfer',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24)),
+                        ],
                       ),
-                      width: 50,
-                      height: 50,
-                      child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: widget.bgColor..withOpacity(0.2)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SvgPicture.asset(
-                                'assets/food_app/common/cart_bag_icon.svg',
-                              ),
-                            ),
-                          )),
                     ),
-                  ),
-                ],
+                    Positioned(
+                      bottom: -10,
+                      // Set a negative value to overflow from the bottom
+                      right: -10,
+                      // Set a negative value to overflow from the right
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: Colors.white,
+                        ),
+                        width: 50,
+                        height: 50,
+                        child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: widget.bgColor..withOpacity(0.2)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SvgPicture.asset(
+                                  'assets/food_app/common/cart_bag_icon.svg',
+                                ),
+                              ),
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

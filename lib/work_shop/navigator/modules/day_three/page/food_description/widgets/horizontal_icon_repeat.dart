@@ -4,8 +4,9 @@ import 'package:flutter_svg/svg.dart';
 class HorizontalIconRepeat extends StatelessWidget {
   final Icon icon;
   final int noOfRepeats;
+  final Color color;
 
-  const HorizontalIconRepeat({super.key, required this.icon, this.noOfRepeats = 3});
+  const HorizontalIconRepeat({super.key, required this.icon, this.noOfRepeats = 3, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class HorizontalIconRepeat extends StatelessWidget {
             margin: EdgeInsets.only(right: index < 1 ? 1 : 0),
             child: SvgPicture.asset(
               'assets/food_app/common/right_arrow.svg',
-              color: Colors.black,
+              color: color,
               height: 15,
               width: 15,
             )

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/burger_maker.dart';
 import '../widgets/choose_burgerIng_radients.dart';
 
@@ -70,9 +69,12 @@ class BurgerScreenState extends State<BurgerScreen> {
                   children: [
                     Expanded(
                         flex: 30,
-                        child: ChooseBurgerItemsWidget(
-                            burgerItems: burgerItems,
-                            onBurgerItemChanged: onBurgerItemChanged)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 20,left: 10),
+                          child: ChooseBurgerItemsWidget(
+                              burgerItems: burgerItems,
+                              onBurgerItemChanged: onBurgerItemChanged),
+                        )),
                     Expanded(
                         flex: 70,
                         child: SingleChildScrollView(

@@ -1,8 +1,22 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class AppUtils {
+
+
+
+ static bool isTablet(double width) {
+    // Define a threshold to distinguish between tablets and phones
+    const double tabletThreshold = 600.0;
+    return width >= tabletThreshold;
+  }
+
+ static double getScreenWidth(BuildContext context) {
+    return MediaQuery.of(context).size.width;
+  }
+
+
+
   static void paintNumbersClock(Canvas canvas, Size size, double fontSize) {
     final double centerX = size.width / 2;
     final double centerY = size.height / 2;
