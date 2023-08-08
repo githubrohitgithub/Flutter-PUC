@@ -43,6 +43,11 @@ class _ScannerDayOneState extends State<ScannerDayOne> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var switchValue = true;
 
@@ -82,6 +87,8 @@ class _ScannerDayOneState extends State<ScannerDayOne> {
                         crossColor: Colors.white,
                         onPressed: () {
                           Navigator.of(context).pop();
+
+                          //_showCustomTopDialog(context, 'rtrtrrtrtrtrtrt'!);
                         },
                       )
                     ],
@@ -144,15 +151,15 @@ class _ScannerDayOneState extends State<ScannerDayOne> {
 
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;
+
+    _showCustomBottomSheet(context);
     controller.scannedDataStream.listen((scanData) {
       result = scanData;
 
       setState(() {
         if (result!.code != previousScannerData) {
-          _showCustomBottomSheet(context);
-
           Navigator.of(context).pop();
-
+          Navigator.of(context).pop();
           _showCustomTopDialog(context, result!.code ?? '');
           previousScannerData = result!.code;
         }

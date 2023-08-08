@@ -7,7 +7,7 @@ import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/das
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/food_description/food_item_description.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/food_item_list/food_item_list_page.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/utils/app_font.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/master_screen/page/mainDashboard.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/master_screen/page/main_dashboard.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

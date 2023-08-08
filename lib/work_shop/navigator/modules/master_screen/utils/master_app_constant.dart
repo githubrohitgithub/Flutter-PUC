@@ -10,11 +10,20 @@ class MasterAppConstant {
 
   static double textScaleFactor = 1;
 
-  static Map<String, Widget> ProjectsWithDate = {
+  static Map<DateWithProjectName, Widget> ProjectsWithDate = {
     // '03-08-2023': Placeholder(),
-    '02-08-2023': const FoodAppDashboard(),
-    '01-Aug-2023': const BurgerScreen(),
-    '31-Jul-2023': const ScannerDayOne(),
-    '28-Jul-2023': const AnalogClock(),
+    DateWithProjectName('02-08-2023','Food App'): const FoodAppDashboard(),
+    DateWithProjectName('01-Aug-2023','Burger stack'): const BurgerScreen(),
+    DateWithProjectName('31-Jul-2023','Scanner'): const ScannerDayOne(),
+    DateWithProjectName('28-Jul-2023','Analog Clock'): const AnalogClock(),
   };
+
+
+
+}
+
+class DateWithProjectName{
+  String date;
+  String projectName;
+  DateWithProjectName(this.date, this.projectName);
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:timer_builder/timer_builder.dart';
 import '../model/time_model.dart';
@@ -14,7 +14,7 @@ class AnalogClock extends StatefulWidget {
 class _AnalogClockState extends State<AnalogClock> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(body: Container(
       decoration: const BoxDecoration(
         // image: DecorationImage(
         //   image: AssetImage('assets/images/masale2.jpg'),
@@ -25,26 +25,26 @@ class _AnalogClockState extends State<AnalogClock> {
         child: Center(
           child: TimerBuilder.periodic(const Duration(seconds: 1),
               builder: (context) {
-            var currentTime = DateTime.now();
+                var currentTime = DateTime.now();
 
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(
-                  child: ClockWidget(
-                    time: TimeModel(
-                        hours: currentTime.hour,
-                        minutes: currentTime.minute,
-                        seconds: currentTime.second,
-                        week: currentTime.weekday),
-                  ),
-                )
-              ],
-            );
-          }),
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: ClockWidget(
+                        time: TimeModel(
+                            hours: currentTime.hour,
+                            minutes: currentTime.minute,
+                            seconds: currentTime.second,
+                            week: currentTime.weekday),
+                      ),
+                    )
+                  ],
+                );
+              }),
         ),
       ),
-    );
+    ),);
   }
 }

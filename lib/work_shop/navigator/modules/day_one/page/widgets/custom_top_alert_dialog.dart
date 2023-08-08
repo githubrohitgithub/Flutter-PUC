@@ -105,24 +105,27 @@ class CustomTopAlertDialog extends StatelessWidget {
                     itemExtent: setCircleDropWidth,
                     // Set the height of each item to fill the SizedBox equally (150 / 2)
                     itemBuilder: (BuildContext context, int index) {
-                      return iconMap.keys.map((String key) {
-                        return GestureDetector(
-                            onTap: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'You clicked on $key',
-                                    textAlign: TextAlign.center,
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 38),
+                        child: iconMap.keys.map((String key) {
+                          return GestureDetector(
+                              onTap: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'You clicked on $key',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    duration: const Duration(seconds: 1),
                                   ),
-                                  duration: const Duration(seconds: 1),
-                                ),
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Icon(iconMap[key], color: Colors.white),
-                            ));
-                      }).toList()[index];
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: Icon(iconMap[key], color: Colors.white),
+                              ));
+                        }).toList()[index],
+                      );
                     },
                   ),
                 ),

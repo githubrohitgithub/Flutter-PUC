@@ -34,6 +34,7 @@ class _PageViewItemState extends State<PageViewItem> {
       padding: const EdgeInsets.all(28.0),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
+
           return Stack(
             children: [
               // The bottom container

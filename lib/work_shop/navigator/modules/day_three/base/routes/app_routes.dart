@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/food_item_list/food_item_list_page.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/my_orders/page/my_orders_page.dart';
-import '../../../master_screen/page/mainDashboard.dart';
+import '../../../custom_clock/page/analog_clock.dart';
+import '../../../day_one/page/scanner_day_one.dart';
+import '../../../day_two/page/burger_screen.dart';
+import '../../../master_screen/page/main_dashboard.dart';
 import '../../models/food_details_model.dart';
 import '../../page/dashboard/food_app_dashboard.dart';
 import '../../page/food_description/food_item_description.dart';
@@ -17,6 +20,15 @@ class AppRouteConstants {
   static const foodDetailsPageRoute = '/FoodDetailsPage';
   static const foodItemListPageRoute = '/FoodItemListPage';
   static const myOrdersPageRoute = '/MyOrdersPage';
+
+
+
+
+
+
+  static const analogClockPageRoute = '/AnalogClockPage';
+  static const scannerPageRoute = '/ScannerPage';
+  static const burgerPageRoute = '/BurgerPage';
 }
 
 class AppRoutes {
@@ -26,11 +38,6 @@ class AppRoutes {
 
       AppRouteConstants.dynamicNavigationWidget: (context) =>
       const DynamicNavigationWidget(),
-
-
-
-
-
 
       AppRouteConstants.foodDashboardPageRoute: (context) =>
           const FoodAppDashboard(),
@@ -55,6 +62,21 @@ class AppRoutes {
 
         );
       },
+
+
+
+      AppRouteConstants.analogClockPageRoute: (context) =>
+      const AnalogClock(),
+
+
+      AppRouteConstants.scannerPageRoute: (context) =>
+      const ScannerDayOne(),
+
+
+      AppRouteConstants.burgerPageRoute: (context) =>
+      const BurgerScreen(),
+
+
     };
   }
 }

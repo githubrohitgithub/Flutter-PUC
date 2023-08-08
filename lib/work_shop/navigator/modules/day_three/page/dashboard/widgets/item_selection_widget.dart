@@ -42,7 +42,7 @@ class _ItemSelectionWidgetState extends State<ItemSelectionWidget> {
                         selectedIndex = index;
 
                         _pageController.animateToPage(0,
-                            duration: Duration(milliseconds: 500),
+                            duration: const Duration(seconds: 1),
                             curve: Curves.easeInOut);
                       });
                     },
@@ -117,7 +117,7 @@ class _ItemSelectionWidgetState extends State<ItemSelectionWidget> {
               return PageViewItem(
                 index: index,
                 selectedIndex: selectedIndex,
-                height: 300,
+                height: 200,
                 itemName: FoodAppConstants.foodCategoriesItems.values
                         .toList()[selectedIndex][index]
                         .name ??

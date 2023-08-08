@@ -110,9 +110,9 @@ class _GridViewItemState extends State<GridViewItem> {
                       ),
                     ),
                     Positioned(
-                      bottom: -10,
+                      bottom: -12,
                       // Set a negative value to overflow from the bottom
-                      right: -10,
+                      right: -12,
                       // Set a negative value to overflow from the right
                       child: Container(
                         decoration: BoxDecoration(

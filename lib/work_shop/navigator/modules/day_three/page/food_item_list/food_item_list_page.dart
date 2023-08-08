@@ -22,12 +22,12 @@ class _FoodItemListPageState extends State<FoodItemListPage> {
   Widget build(BuildContext context) {
     var listOfBurgerTypes = FoodAppConstants.listOfBurgerTypes;
 
-    return Scaffold(body: Column(
+    return Scaffold(backgroundColor: Colors.white,body: Column(
       children: [
          Expanded(
-          child: AnimatedTopToBottomWidget(child: TopHeader(
+          child: AnimatedTopToBottomWidget(duration: const Duration(seconds: 1),child: const TopHeader(
             title: 'Burgers',
-          ),duration: Duration(seconds: 1),),
+          ),),
         ),
         Expanded(
             flex: 1,
