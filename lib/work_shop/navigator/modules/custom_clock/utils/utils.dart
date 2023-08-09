@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 class AppUtils {
 
-
-
  static bool isTablet(double width) {
     // Define a threshold to distinguish between tablets and phones
     const double tabletThreshold = 600.0;
@@ -33,11 +31,7 @@ class AppUtils {
 
     double radius = min(centerX, centerY)-(isTab?120:70);
     double outerRadius = radius - (radius / 15);
-    double innerRadius = radius - (radius / 5);
-    Paint hourDashPaint = Paint()
-      ..color =  Colors.black
-      ..strokeWidth = isTab?2:1
-      ..strokeCap = StrokeCap.round;
+
 
     for (int i = 1; i <= numHours; i++) {
       final double angle = (-90 + i * angleIncrement) *
@@ -61,12 +55,17 @@ class AppUtils {
       textPainter.paint(canvas, textOffset);
     }
 
+    Paint hourDotPaint = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.fill;
+
+    var radiusFactor = 0.75;
+    var dotSize = isTab?2.0:1.0;
+
     for (int i = 0; i < 360; i += 6) {
-      double x1 = centerX - outerRadius * .85 * cos(i * pi / 180);
-      double y1 = centerY - outerRadius * .85 * sin(i * pi / 180);
-      double x2 = centerX - innerRadius * cos(i * pi / 180);
-      double y2 = centerY - innerRadius * sin(i * pi / 180);
-      canvas.drawLine(Offset(x1, y1), Offset(x2, y2), hourDashPaint);
+      double x = centerX - outerRadius * radiusFactor * cos(i * pi / 180);
+      double y = centerY - outerRadius * radiusFactor * sin(i * pi / 180);
+      canvas.drawCircle(Offset(x, y), dotSize, hourDotPaint);
     }
   }
 

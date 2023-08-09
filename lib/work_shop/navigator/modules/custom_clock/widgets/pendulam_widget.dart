@@ -16,7 +16,7 @@ class PendulumAnimationState extends State<PendulumAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _angleAnimation;
-  final double _amplitude = pi / 4; // Maximum angle of oscillation
+  final double _amplitude = pi / 6; // Maximum angle of oscillation
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class PendulumAnimationState extends State<PendulumAnimation>
 
   @override
   Widget build(BuildContext context) {
-    var pendulumHeightRatio = widget.isTab ? 2.1 : 4.1;
+    var pendulumHeightRatio = widget.isTab ?1.9 : 3.1;
 
     return AnimatedBuilder(
       animation: _angleAnimation,
@@ -54,7 +54,6 @@ class PendulumAnimationState extends State<PendulumAnimation>
             length: pendulumHeight,
             angle: _angleAnimation.value,
           ),
-          size: const Size(300, 300),
         );
       },
     );

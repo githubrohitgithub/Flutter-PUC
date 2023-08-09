@@ -72,7 +72,7 @@ Widget leftInfoForBottomSheet(List<CartModel> listOfCartOptions) {
     children: [
       CircleWithText(
         centerWidget: Text(
-          '${listOfCartOptions.length}',
+          '${listOfCartOptions.length-1}',
           style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontFamily: 'OriginalSurfer',
@@ -98,7 +98,7 @@ Widget leftInfoForBottomSheet(List<CartModel> listOfCartOptions) {
                 fontFamily: 'OriginalSurfer'),
           ),
           Text(
-            '${listOfCartOptions.length} items',
+            '${listOfCartOptions.length-1} items',
             style: const TextStyle(
                 fontWeight: FontWeight.normal,
                 color: Colors.white,

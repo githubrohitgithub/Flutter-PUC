@@ -70,7 +70,7 @@ flutter:
 
 
   assets:
-    - assets/analog_clock_app/icons/
+    - assets/analog_clock_app/
 
     - assets/scanner_app/icons/
 

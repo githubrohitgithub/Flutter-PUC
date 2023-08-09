@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/custom_clock/paints/smartq_logo_paint.dart';
 
 class PendulumPainter extends CustomPainter {
   final double length; // Length of the pendulum
@@ -28,17 +29,20 @@ class PendulumPainter extends CustomPainter {
 
     // Draw the pendulum bob
     Paint bobPaint = Paint()
-      ..shader = RadialGradient(
+      ..shader = const RadialGradient(
         center: Alignment.center,
         radius: 1,
         colors: [
-          Colors.black, // Outer color
-          Colors.black26, // Inner color
+          Colors.amber, // Outer color
+          Colors.amberAccent, // Inner color
         ],
         stops: [0.5, 1.0],
       ).createShader(Rect.fromCircle(center: Offset(bobX, bobY), radius: 20));
 
     canvas.drawCircle(Offset(bobX, bobY), 30, bobPaint);
+
+
+
   }
 
   @override

@@ -5,9 +5,10 @@ import 'package:flutter_work_shop/work_shop/navigator/modules/custom_clock/widge
 
 import '../model/time_model.dart';
 import '../paints/clock_painter.dart';
+import '../paints/smartq_logo_paint.dart';
 import '../utils/utils.dart';
 import 'elevated_plate.dart';
-
+import 'dart:ui' as ui;
 class ClockWidget extends StatefulWidget {
   final TimeModel time;
 
@@ -30,32 +31,47 @@ class _ClockWidgetState extends State<ClockWidget> {
 
     var isTab = AppUtils.isTablet(AppUtils.getScreenWidth(context));
 
-    var innerRad = isTab?2.8:1.8;
+    var innerRad = isTab?2.4:1.4;
 
-    var customWidth = screenWidth / 1.2;
-    var customHeight = screenHeight / 1.2;
+    var customWidth = screenWidth / 1.1;
+    var customHeight = screenHeight / 1.1;
 
-    return SizedBox(
-      width: customWidth,
-      height: customHeight,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          PendulumAnimation(
-            screenHeight,
-            isTab: isTab,
-          ),
-           elevatedPlate(customWidth , customHeight ),
-           elevatedPlate(customWidth / innerRad, customHeight),
-           elevatedPlate(customWidth / (innerRad*1.7), customHeight),
-          Container(
-            constraints: const BoxConstraints.expand(),
-            child: CustomPaint(
-              painter: ClockPainter(
-                  context: context, time: widget.time, isTab: isTab),
+
+
+    var logoSize = isTab? 50.0: 25.0;
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 10.0),
+      child: SizedBox(
+        width: customWidth,
+        height: customHeight,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            PendulumAnimation(
+              screenHeight,
+              isTab: isTab,
             ),
-          ),
-        ],
+             elevatedPlate(customWidth , customHeight ),
+             elevatedPlate(customWidth / innerRad, customHeight),
+
+
+             elevatedPlate(customWidth / (innerRad*(isTab?1.7:2.0)), customHeight),
+            Container(
+              constraints: const BoxConstraints.expand(),
+              child: CustomPaint(
+                painter: ClockPainter(
+                    context: context, time: widget.time, isTab: isTab),
+              ),
+            ),
+
+
+            CustomPaint(
+              size: Size(logoSize, logoSize),
+              painter: SmartqLogoPaint(),
+            ),
+          ],
+        ),
       ),
     );
   }
