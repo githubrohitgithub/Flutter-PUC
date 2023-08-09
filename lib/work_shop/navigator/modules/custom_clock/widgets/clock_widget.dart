@@ -1,10 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/custom_clock/widgets/pendulam_widget.dart';
 
 import '../model/time_model.dart';
 import '../paints/clock_painter.dart';
 import '../utils/utils.dart';
+import 'elevated_plate.dart';
 
 class ClockWidget extends StatefulWidget {
   final TimeModel time;
@@ -18,7 +20,6 @@ class ClockWidget extends StatefulWidget {
 class _ClockWidgetState extends State<ClockWidget> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -27,115 +28,35 @@ class _ClockWidgetState extends State<ClockWidget> {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
 
-   var isTab = AppUtils.isTablet(AppUtils.getScreenWidth(context));
+    var isTab = AppUtils.isTablet(AppUtils.getScreenWidth(context));
 
-   var innerRad = isTab ? 4 : 2;
+    var innerRad = isTab?2.8:1.8;
 
-    return OrientationBuilder(
-      builder: (BuildContext context, Orientation orientation) {
-        return SizedBox(
-          width: screenWidth / 1.2,
-          height: screenHeight / 1.2,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                width: screenWidth / 0.5,
-                height: screenHeight / 0.5,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFFECF6FF),
-                      Color(0xFFCADBEB),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.white.withOpacity(0.5),
-                      spreadRadius: 6,
-                      blurRadius: 16,
-                      offset: const Offset(10, 5),
-                    ),
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 3,
-                      blurRadius: 16,
-                      offset: const Offset(-10, -5),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                width: screenWidth / innerRad,
-                height: screenHeight / 1,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFFECF6FF),
-                      Color(0xFFCADBEB),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.white.withOpacity(0.5),
-                      spreadRadius: 6,
-                      blurRadius: 16,
-                      offset: const Offset(10, 5),
-                    ),
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 3,
-                      blurRadius: 16,
-                      offset: const Offset(-10, -5),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                width: screenWidth / 5,
-                height: screenHeight / 3,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFFECF6FF),
-                      Color(0xFFCADBEB),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.white.withOpacity(0.5),
-                      spreadRadius: 3,
-                      blurRadius: 16,
-                      offset: const Offset(10, 5),
-                    ),
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 16,
-                      offset: const Offset(-10, -5),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                constraints: const BoxConstraints.expand(),
-                child: CustomPaint(
-                  painter: ClockPainter(context: context,time: widget.time, orientation: orientation),
-                ),
-              ),
-            ],
+    var customWidth = screenWidth / 1.2;
+    var customHeight = screenHeight / 1.2;
+
+    return SizedBox(
+      width: customWidth,
+      height: customHeight,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          PendulumAnimation(
+            screenHeight,
+            isTab: isTab,
           ),
-        );
-      },
+           elevatedPlate(customWidth , customHeight ),
+           elevatedPlate(customWidth / innerRad, customHeight),
+           elevatedPlate(customWidth / (innerRad*1.7), customHeight),
+          Container(
+            constraints: const BoxConstraints.expand(),
+            child: CustomPaint(
+              painter: ClockPainter(
+                  context: context, time: widget.time, isTab: isTab),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

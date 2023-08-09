@@ -17,7 +17,7 @@ class AppUtils {
 
 
 
-  static void paintNumbersClock(Canvas canvas, Size size, double fontSize) {
+  static void paintNumbersClock(Canvas canvas, Size size, double fontSize,bool isTab) {
     final double centerX = size.width / 2;
     final double centerY = size.height / 2;
     const int numHours = 12;
@@ -31,12 +31,12 @@ class AppUtils {
       fontWeight: FontWeight.bold,
     );
 
-    double radius = min(centerX, centerY)-100;
+    double radius = min(centerX, centerY)-(isTab?120:70);
     double outerRadius = radius - (radius / 15);
     double innerRadius = radius - (radius / 5);
     Paint hourDashPaint = Paint()
-      ..color =  Colors.white
-      ..strokeWidth = 1
+      ..color =  Colors.black
+      ..strokeWidth = isTab?2:1
       ..strokeCap = StrokeCap.round;
 
     for (int i = 1; i <= numHours; i++) {
@@ -71,7 +71,7 @@ class AppUtils {
   }
 
 
-  static void paintWeeksClock(Canvas canvas, Size size, double fontSize,int? week) {
+  static void paintWeeksClock(Canvas canvas, Size size, double fontSize,int? week,bool isTab) {
     final double centerX = size.width / 2;
     final double centerY = size.height / 2;
 
