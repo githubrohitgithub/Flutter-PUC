@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/custom_clock/page/analog_clock.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/base/routes/app_routes.dart';
-import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/dashboard/food_app_dashboard.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_work_shop/work_shop/navigator/modules/custom_clock/utils/utils.dart';
+import 'package:neopop/widgets/buttons/neopop_tilted_button/neopop_tilted_button.dart';
 import '../utils/master_app_constant.dart';
 import '../widgets/date_view.dart';
 
@@ -33,6 +33,8 @@ class DynamicNavigationWidgetState extends State<DynamicNavigationWidget> {
   Widget build(BuildContext context) {
     var foodDataSet = MasterAppConstant.ProjectsWithDate;
 
+    var isTab = AppUtils.isTablet(MediaQuery.of(context).size.width);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
@@ -46,9 +48,9 @@ class DynamicNavigationWidgetState extends State<DynamicNavigationWidget> {
                 child: Text('Flutter Work Shop',
                     textScaleFactor: 0.8,
                     style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        )),
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'OriginalSurfer')),
               ),
             ),
           ],
@@ -83,34 +85,25 @@ class DynamicNavigationWidgetState extends State<DynamicNavigationWidget> {
           // Right Data
           Expanded(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                Image.asset(
+                  'assets/flutter-birds.png',
+                  width: 600,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: AspectRatio(
-                    aspectRatio: 6 / 2,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary:
-                            Colors.amberAccent, // Set the background color here
-                      ),
-                      onPressed: () {
-                        var selectedPage = MasterAppConstant
-                            .ProjectsWithDate.values
-                            .toList()[_selectedIndex];
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => selectedPage),
-                        );
-
-                        //navigate to widget page
-                      },
-                      child: Text(
-                        'Launch the ${foodDataSet.keys.toList()[_selectedIndex].projectName}',
-                        style: TextStyle(color: Colors.black, fontSize: 18),
-                      ),
-                    ),
+                    aspectRatio: 12 / 2,
+                    child: launchAppButton(
+                        Text(
+                          'Launch the ${foodDataSet.keys.toList()[_selectedIndex].projectName}',
+                          style: TextStyle(
+                              fontSize: isTab ? 32 : 16,
+                              fontFamily: 'Chunk Five Print'),
+                        ), () {
+                      buttonClicked(context, _selectedIndex);
+                    }, isTab),
                   ),
                 ),
               ],
@@ -120,4 +113,34 @@ class DynamicNavigationWidgetState extends State<DynamicNavigationWidget> {
       ),
     );
   }
+}
+
+void buttonClicked(BuildContext context, int selectedIndex) {
+  var selectedPage =
+      MasterAppConstant.ProjectsWithDate.values.toList()[selectedIndex];
+
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => selectedPage),
+  );
+}
+
+Widget launchAppButton(Widget btnText, Function callback, bool isTab) {
+  return NeoPopTiltedButton(
+    isFloating: true,
+    onTapUp: () {
+      callback.call();
+    },
+    decoration: const NeoPopTiltedButtonDecoration(
+      color: Color.fromRGBO(255, 235, 52, 2),
+      plunkColor: Color.fromRGBO(255, 235, 52, 2),
+      shadowColor: Color.fromRGBO(36, 36, 36, 2),
+      showShimmer: true,
+    ),
+    child: Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: isTab ? 70.0 : 30.0, vertical: isTab ? 15 : 10.0),
+      child: Center(child: btnText),
+    ),
+  );
 }

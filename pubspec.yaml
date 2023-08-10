@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.0.7
   lite_rolling_switch: ^1.0.1
   timer_builder:
+  neopop: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -67,9 +68,19 @@ flutter:
       fonts:
         - asset: assets/fonts/OriginalSurfer-Regular.ttf
 
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico.ttf
+
+
+    - family: Chunk Five Print
+      fonts:
+        - asset: assets/fonts/Chunk Five Print.otf
+
 
 
   assets:
+    - assets/
     - assets/analog_clock_app/
 
     - assets/scanner_app/icons/

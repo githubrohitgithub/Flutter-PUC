@@ -12,10 +12,10 @@ class MasterAppConstant {
 
   static Map<DateWithProjectName, Widget> ProjectsWithDate = {
     // '03-08-2023': Placeholder(),
-    DateWithProjectName('02-08-2023','Food App'): const FoodAppDashboard(),
-    DateWithProjectName('01-Aug-2023','Burger stack'): const BurgerScreen(),
-    DateWithProjectName('31-Jul-2023','Scanner'): const ScannerDayOne(),
-    DateWithProjectName('28-Jul-2023','Analog Clock'): const AnalogClock(),
+    DateWithProjectName('02-08-2023','Food App','assets/order.png'): const FoodAppDashboard(),
+    DateWithProjectName('01-Aug-2023','Burger stack','assets/burger.png'): const BurgerScreen(),
+    DateWithProjectName('31-Jul-2023','Scanner','assets/qr-code.png'): const ScannerDayOne(),
+    DateWithProjectName('28-Jul-2023','Analog Clock','assets/clock.png'): const AnalogClock(),
   };
 
 
@@ -25,5 +25,6 @@ class MasterAppConstant {
 class DateWithProjectName{
   String date;
   String projectName;
-  DateWithProjectName(this.date, this.projectName);
+  String icon;
+  DateWithProjectName(this.date, this.projectName,this.icon);
 }
