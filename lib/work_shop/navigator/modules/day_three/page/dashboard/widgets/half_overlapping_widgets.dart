@@ -9,8 +9,6 @@ class OverlappingCirclesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //create a stack of widgets and fill th children from listOfWidgets
 
-
-
     return listOfWidgets.isNotEmpty
         ? SizedBox(
             height: 60,

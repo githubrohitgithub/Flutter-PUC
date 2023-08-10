@@ -78,6 +78,10 @@ class ClockPainter extends CustomPainter {
         canvas, size, weekFontSize.toDouble(), time?.week!, isTab);
     AppUtils.paintNumbersClock(canvas, size, numberFontSize.toDouble(), isTab);
 
+
+    AppUtils.paintMonthsClock(canvas, size, weekFontSize.toDouble(),time?.month, isTab);
+
+
     ///setting the brush for the clock pointers
 
     var minBrush = Paint()

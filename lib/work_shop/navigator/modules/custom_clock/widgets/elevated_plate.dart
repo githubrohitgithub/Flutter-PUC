@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-Widget elevatedPlate(double width, double height){
+Widget elevatedPlate(double width, double height,Color color1,Color color2){
 
   return  Container(
     width: width,
     height: height,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
-      gradient: const LinearGradient(
+      gradient:  LinearGradient(
         colors: [
-          Color(0xFFECF6FF),
-          Color(0xFFCADBEB),
+         color1,
+          color2
         ],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,

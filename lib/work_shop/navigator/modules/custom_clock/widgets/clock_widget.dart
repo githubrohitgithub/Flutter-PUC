@@ -32,42 +32,59 @@ class _ClockWidgetState extends State<ClockWidget> {
 
     var isTab = AppUtils.isTablet(AppUtils.getScreenWidth(context));
 
-    var innerRad = isTab ? 2.4 : 1.4;
+    var innerRad = isTab ? 2.4 : 1.6;
 
-    var customWidth = screenWidth / 1.1;
-    var customHeight = screenHeight / 1.1;
+    var customWidth = screenWidth / 1.2;
+    var customHeight = screenHeight / 1.2;
 
-    var logoSize = isTab ? 50.0 : 25.0;
+    var logoSize = isTab ? 50.0 : 30.0;
 
-    return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
-      child: SizedBox(
-        width: customWidth,
-        height: customHeight,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            PendulumAnimation(
-              screenHeight,
-              isTab: isTab,
+    return SizedBox(
+      width: customWidth,
+      height: customHeight,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          PendulumAnimation(
+            screenHeight,
+            isTab: isTab,
+          ),
+          elevatedPlate(
+            customWidth,
+            customHeight,
+            Color(0xFFECF6FF),
+            Color(0xFFB1BECA),
+          ),
+          elevatedPlate(
+            customWidth / 1.2,
+            customHeight / 1.2,
+            Color(0xFFECF6FF),
+            Color(0xFFB1BECA),
+          ),
+          elevatedPlate(
+            customWidth / innerRad,
+            customHeight,
+            Color(0xFFECF6FF),
+            Color(0xFFB1BECA),
+          ),
+          elevatedPlate(
+            customWidth / (innerRad * (isTab ? 1.7 : 2.0)),
+            customHeight,
+            Color(0xFFECF6FF),
+            Color(0xFFCADBEB),
+          ),
+          Container(
+            constraints: const BoxConstraints.expand(),
+            child: CustomPaint(
+              painter: ClockPainter(
+                  context: context, time: widget.time, isTab: isTab),
             ),
-            elevatedPlate(customWidth, customHeight),
-            elevatedPlate(customWidth / innerRad, customHeight),
-            elevatedPlate(
-                customWidth / (innerRad * (isTab ? 1.7 : 2.0)), customHeight),
-            Container(
-              constraints: const BoxConstraints.expand(),
-              child: CustomPaint(
-                painter: ClockPainter(
-                    context: context, time: widget.time, isTab: isTab),
-              ),
-            ),
-            CustomPaint(
-              size: Size(logoSize, logoSize),
-              painter: SmartqLogoPaint(),
-            ),
-          ],
-        ),
+          ),
+          CustomPaint(
+            size: Size(logoSize, logoSize),
+            painter: SmartqLogoPaint(),
+          ),
+        ],
       ),
     );
   }
