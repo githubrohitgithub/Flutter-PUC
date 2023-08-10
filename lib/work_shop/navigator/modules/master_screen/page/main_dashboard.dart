@@ -94,12 +94,12 @@ class DynamicNavigationWidgetState extends State<DynamicNavigationWidget> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: AspectRatio(
-                    aspectRatio: 12 / 2,
+                    aspectRatio: 8 / 2,
                     child: launchAppButton(
                         Text(
                           'Launch the ${foodDataSet.keys.toList()[_selectedIndex].projectName}',
                           style: TextStyle(
-                              fontSize: isTab ? 32 : 16,
+                              fontSize: isTab ? 32 : 10,
                               fontFamily: 'Chunk Five Print'),
                         ), () {
                       buttonClicked(context, _selectedIndex);

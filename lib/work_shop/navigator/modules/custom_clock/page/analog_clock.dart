@@ -28,23 +28,14 @@ class _AnalogClockState extends State<AnalogClock> {
                 builder: (context) {
               var currentTime = DateTime.now();
 
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-
-
-                  ClockWidget(
-                    time: TimeModel(
-                        hours: currentTime.hour,
-                        minutes: currentTime.minute,
-                        seconds: currentTime.second,
-                        milliseconds: currentTime.millisecond,
-                        week: currentTime.weekday,
-                    ),
-                  )
-
-                ],
+              return ClockWidget(
+                time: TimeModel(
+                    hours: currentTime.hour,
+                    minutes: currentTime.minute,
+                    seconds: currentTime.second,
+                    milliseconds: currentTime.millisecond,
+                    week: currentTime.weekday,
+                ),
               );
             }),
           )],

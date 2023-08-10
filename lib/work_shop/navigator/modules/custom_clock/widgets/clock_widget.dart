@@ -9,6 +9,7 @@ import '../paints/smartq_logo_paint.dart';
 import '../utils/utils.dart';
 import 'elevated_plate.dart';
 import 'dart:ui' as ui;
+
 class ClockWidget extends StatefulWidget {
   final TimeModel time;
 
@@ -31,14 +32,12 @@ class _ClockWidgetState extends State<ClockWidget> {
 
     var isTab = AppUtils.isTablet(AppUtils.getScreenWidth(context));
 
-    var innerRad = isTab?2.4:1.4;
+    var innerRad = isTab ? 2.4 : 1.4;
 
     var customWidth = screenWidth / 1.1;
     var customHeight = screenHeight / 1.1;
 
-
-
-    var logoSize = isTab? 50.0: 25.0;
+    var logoSize = isTab ? 50.0 : 25.0;
 
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
@@ -52,11 +51,10 @@ class _ClockWidgetState extends State<ClockWidget> {
               screenHeight,
               isTab: isTab,
             ),
-             elevatedPlate(customWidth , customHeight ),
-             elevatedPlate(customWidth / innerRad, customHeight),
-
-
-             elevatedPlate(customWidth / (innerRad*(isTab?1.7:2.0)), customHeight),
+            elevatedPlate(customWidth, customHeight),
+            elevatedPlate(customWidth / innerRad, customHeight),
+            elevatedPlate(
+                customWidth / (innerRad * (isTab ? 1.7 : 2.0)), customHeight),
             Container(
               constraints: const BoxConstraints.expand(),
               child: CustomPaint(
@@ -64,8 +62,6 @@ class _ClockWidgetState extends State<ClockWidget> {
                     context: context, time: widget.time, isTab: isTab),
               ),
             ),
-
-
             CustomPaint(
               size: Size(logoSize, logoSize),
               painter: SmartqLogoPaint(),
