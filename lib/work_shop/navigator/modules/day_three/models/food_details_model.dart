@@ -5,8 +5,8 @@ import 'food_sub_type.dart';
 class FoodDetailsModel {
   String? name;
   String? image;
-  int? price;
-  int? quantity;
+  String? price;
+  String? quantity;
   List<FoodSubType>? listFoodSubType;
 
   FoodDetailsModel(

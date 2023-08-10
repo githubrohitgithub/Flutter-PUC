@@ -5,6 +5,7 @@ import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/das
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/utils/food_app_constant.dart';
 import '../../base/animations/animated_bottom_to_top.dart';
 import '../../base/paints/custom_bottom_sheet_paint.dart';
+import '../../utils/utils.dart';
 
 class FoodAppDashboard extends StatefulWidget {
   const FoodAppDashboard({super.key});
@@ -16,6 +17,8 @@ class FoodAppDashboard extends StatefulWidget {
 class _FoodAppDashboardState extends State<FoodAppDashboard> {
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -49,11 +52,9 @@ class _FoodAppDashboardState extends State<FoodAppDashboard> {
                     width: MediaQuery.of(context).size.width,
                     child: CustomPaint(
                       painter: CustomBottomSheetPaint(),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: BottomWidgetElements(
-                          listOfCartOptions: FoodAppConstants.listOfCartModel,
-                        ),
+                      child: const Padding(
+                        padding:  EdgeInsets.all(16.0),
+                        child: BottomWidgetElements(),
                       ),
                     ),
                   )

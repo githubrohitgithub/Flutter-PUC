@@ -6,6 +6,7 @@ import '../models/food_sub_type.dart';
 
 class FoodAppConstants {
   static String fontStyleOriginalSurfer = 'OriginalSurfer';
+  static String cartTableName = 'food cart';
 
   static Map<FoodCategories, List<FoodSubType>> foodCategoriesItems = {
     const FoodCategories(id: '0', name: 'All', color: Colors.white, image: ''):
@@ -144,6 +145,7 @@ class FoodAppConstants {
 
   static List<CartModel> listOfCartModel = [
     CartModel(
+      id: '1',
         name: 'Beef Burger',
         price: '10',
         quantity: '2',
@@ -152,6 +154,7 @@ class FoodAppConstants {
         image: 'assets/food_app/sub_items_images/beef_burger.png'),
 
     CartModel(
+        id: '2',
         name: 'Cheese Burger',
         price: '10',
         quantity: '1',
@@ -159,6 +162,7 @@ class FoodAppConstants {
         subName: 'mid Cheese burger',
         image: 'assets/food_app/sub_items_images/cheesbust.png'),
     CartModel(
+        id: '3',
         name: 'Cake',
         price: '20',
         quantity: '1',
@@ -166,6 +170,7 @@ class FoodAppConstants {
         subName: 'Cake Cheese burger',
         image: 'assets/food_app/food_categories/ic_cake.png'),
     CartModel(
+        id: '3',
         name: 'Drink',
         price: '30',
         quantity: '1',

@@ -4,6 +4,7 @@ import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/page/foo
 import '../../../base/routes/app_routes.dart';
 import '../../../models/food_sub_type.dart';
 import '../../../utils/color_convertor.dart';
+import '../../../utils/utils.dart';
 import 'custom_slider_widget.dart';
 
 class ItemImage extends StatefulWidget {
@@ -47,38 +48,12 @@ class _ItemImageState extends State<ItemImage> {
           Expanded(
               flex: 1,
               child: AnimatedBottomToTopWidget(
-                duration: Duration(seconds: 1),
+                duration: const Duration(seconds: 1),
                 child: SubItemListWidget(
                   subItemsList: widget.listOfFoodSubItems,
                 ),
               )),
-          Expanded(
-              flex: 1,
-              child: AnimatedBottomToTopWidget(
-                duration: Duration(seconds: 1),
-                child: Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: CustomSliderWidget(
-                    sliderBgColor: ColorConvertor.getColorFromHex('#ebd8c0'),
-                    bgColor: Colors.white,
-                    arrowColor: Colors.black,
-                    msgColor: Colors.black,
-                    msg: 'Add to cart',
-                    onSlide: () {
-                      var arguments = FoodOrderedArguments(
-                          bgColor:
-                              widget.bgColor ?? Colors.grey.withOpacity(0.2),
-                          buttonColor: ColorConvertor.getColorFromHex('#ebd8c0'));
 
-                      Navigator.pushNamed(
-                          context, AppRouteConstants.myOrdersPageRoute,
-                          arguments:
-                              arguments // Replace `yourData` with the actual data you want to pass.
-                          );
-                    },
-                  ),
-                ),
-              )),
         ],
       ),
     );

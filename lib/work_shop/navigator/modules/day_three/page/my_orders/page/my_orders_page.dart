@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/base/animations/animated_bottom_to_top.dart';
 import 'package:flutter_work_shop/work_shop/navigator/modules/day_three/utils/food_app_constant.dart';
-import '../../../base/paints/custom_bottom_sheet_paint.dart';
-import '../../../models/cart_model.dart';
+import '../../../base/routes/app_routes.dart';
 import '../../../utils/color_convertor.dart';
-import '../../dashboard/widgets/bottom_wigets_elements.dart';
+import '../../../utils/utils.dart';
 import '../../food_description/widgets/custom_slider_widget.dart';
 import '../widgets/my_order_list.dart';
-import '../widgets/my_orders_item_widget.dart';
 
 class MyOrdersPage extends StatefulWidget {
   final Color bgColor;
@@ -23,11 +21,12 @@ class MyOrdersPage extends StatefulWidget {
 class _MyOrdersPageState extends State<MyOrdersPage> {
   @override
   Widget build(BuildContext context) {
-    var listOfCartModel = FoodAppConstants.listOfCartModel;
+    var listOfCartModel = foodItemCartTemp;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: AnimatedBottomToTopWidget(
+          duration: const Duration(seconds: 1),
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(top: 30),
@@ -225,6 +224,10 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
                                         msgColor: Colors.white,
                                         msg: 'Checkout',
                                         onSlide: () {
+
+
+                                          foodItemCartTemp.clear();
+
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -238,6 +241,13 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
                                               ),
                                             ),
                                           );
+
+                                          Navigator.pushNamed(context, AppRouteConstants.foodDashboardPageRoute,
+
+                                          );
+
+
+
                                         },
                                       ),
                                     ),
@@ -253,8 +263,7 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
                 ),
               ),
             ),
-          ),
-          duration: Duration(seconds: 1)),
+          )),
     );
   }
 }
