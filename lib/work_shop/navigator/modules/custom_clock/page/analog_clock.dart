@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:timer_builder/timer_builder.dart';
 import '../model/time_model.dart';
 import '../utils/utils.dart';
@@ -33,28 +34,7 @@ class _AnalogClockState extends State<AnalogClock> {
               )),
 
 
-          Align(
-              alignment: Alignment.topLeft,
-              child: Image.asset(
-                'assets/analog_clock_app/lamp.png',
-                width: isTab ? 200 : 100,
-              )),
-          Center(
-            child: TimerBuilder.periodic(const Duration(milliseconds: 50),
-                builder: (context) {
-              var currentTime = DateTime.now();
-
-              return ClockWidget(
-                time: TimeModel(
-                    hours: currentTime.hour,
-                    minutes: currentTime.minute,
-                    seconds: currentTime.second,
-                    milliseconds: currentTime.millisecond,
-                    week: currentTime.weekday,
-                    month: currentTime.month),
-              );
-            }),
-          )
+         const ClockWidget()
         ],
       ),
     );

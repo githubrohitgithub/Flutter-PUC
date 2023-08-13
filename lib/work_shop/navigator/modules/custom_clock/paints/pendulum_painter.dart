@@ -22,7 +22,7 @@ class PendulumPainter extends CustomPainter {
     // Draw the pendulum rod
     Paint rodPaint = Paint()
       ..color = Colors.black
-      ..strokeWidth = 8.0;
+      ..strokeWidth = 2.0;
     canvas.drawLine(Offset(centerX, centerY), Offset(bobX, bobY), rodPaint);
 
     canvas.drawLine(Offset(pivotX, pivotY), Offset(bobX, bobY), rodPaint);
@@ -39,7 +39,7 @@ class PendulumPainter extends CustomPainter {
         stops: [0.5, 1.0],
       ).createShader(Rect.fromCircle(center: Offset(bobX, bobY), radius: 20));
 
-    canvas.drawCircle(Offset(bobX, bobY), 30, bobPaint);
+    canvas.drawCircle(Offset(bobX, bobY), 15, bobPaint);
 
 
 
